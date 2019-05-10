@@ -1,0 +1,43 @@
+
+
+.App {
+  text-align: center;
+  color: #999;
+}
+.start {
+  position:fixed;
+  font-size: 4em;
+  font-weight: bold;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.start .speedBtn {
+  padding: 0 30px;
+}
+.start .speedBtn:hover {
+  color: green;
+}
+.sentence {
+  position: fixed;
+  font-size: 4em;
+  font-weight: bold;
+  background: #fff;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.sentence .overlay {
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height:0%;
+  overflow:hidden;
+  white-space: nowrap;
+}
+.btn {
+  font-size: 50px;
+}
