@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { SENTENCE_DATA } from '../const/sentence';
+import TimerUI from './timer_ui';
 
 const DATA = SENTENCE_DATA;
+let timeoutIndex = null;
 
 class Sentence extends Component {
     constructor(props) {
@@ -43,9 +45,10 @@ class Sentence extends Component {
         }
 
         let timeout = (time * 1000) + (nextSentence.length * 150);
+        timeout = Math.round(timeout / 1000);
         console.log(timeout);
 
-        setTimeout(e => this.changeSentence(), timeout);
+        timeoutIndex = setTimeout(e => this.changeSentence(), timeout * 1000);
         this.setState({ sentence: nextSentence, key: index, language: nextLanguage, timeout });
     }
     randKey() {
@@ -74,19 +77,22 @@ class Sentence extends Component {
 
         textDiv.style.transition = '';
         textDiv.style.height = "0%";
-        textDiv.style.transition = timeout + 's linear';
-
+        textDiv.style.transition = (timeout*1000) + 's linear';
         textDiv.style.height = "100%";
+    }
+    componentWillUnmount() {
+        clearTimeout(timeoutIndex);
     }
 
     render() {
-        const { sentence } = this.state;
+        const { sentence, timeout } = this.state;
         return (
             <div className='sentence'>
                 {sentence}
-                <div className='overlay'>
+                <div className='overlay' style={{height: 0}}>
                     {sentence}
                 </div>
+                <TimerUI timeout={timeout} />
             </div>
         );
     }

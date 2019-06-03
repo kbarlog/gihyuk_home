@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Sentence from './component/sentence';
+import Menu from './component/menu';
 import './App.css';
 
 const SHORT_TIME = 1;
@@ -62,8 +63,9 @@ class App extends Component {
 
   render() {
     const { progress, time } = this.state;
-    return (
+    return (      
       <div className="App">
+        <Menu />
         {progress === 'start'
           ? <div className="start" onClick={this.start}>
             시작
