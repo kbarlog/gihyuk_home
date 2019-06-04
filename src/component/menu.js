@@ -6,7 +6,12 @@ class Menu extends Component {
     render() {
         return (
             <div className="menu">
-                Gihyuk
+                <div className="logo">
+                    KIM GI-HYUK
+                </div>
+                <div className="element">
+                    About
+                </div>
             </div>
         );
     }

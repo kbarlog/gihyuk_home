@@ -1,4 +1,7 @@
-
+body {
+  border: 10px solid #333;
+  height: 100%;
+}
 .App {
   text-align: center;
   color: #999;
